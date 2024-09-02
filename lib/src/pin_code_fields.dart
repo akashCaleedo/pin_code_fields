@@ -67,6 +67,9 @@ class PinCodeTextField extends StatefulWidget {
   /// the style of the text, default is [ fontSize: 20, fontWeight: FontWeight.bold]
   final TextStyle? textStyle;
 
+  /// the style of the errortext, the default is equivalent to the [TextFormField] errorStyle.
+  final TextStyle? errorStyle;
+
   /// the style of the pasted text, default is [fontWeight: FontWeight.bold] while
   /// [TextStyle.color] is [ThemeData.colorScheme.onSecondary]
   final TextStyle? pastedTextStyle;
@@ -800,10 +803,11 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
           onFieldSubmitted: widget.onSubmitted,
           onEditingComplete: widget.onEditingComplete,
           enableInteractiveSelection: false,
-          showCursor: false,
+          showCursor: false,          
           // using same as background color so tha it can blend into the view
           cursorWidth: 0.01,
           decoration: InputDecoration(
+            errorStyle: widget.errorStyle,
             contentPadding: const EdgeInsets.all(0),
             border: InputBorder.none,
             fillColor: widget.backgroundColor,
